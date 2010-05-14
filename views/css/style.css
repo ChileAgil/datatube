@@ -1,0 +1,41 @@
+body {
+	font-family: Verdana, Arial;
+	font-size: 11px;
+	color: #000;
+}
+
+label {
+	margin: 10px 0 0 0;
+	display: block;
+}
+input {
+}
+
+ul.toolbar {
+	display: inline;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+ul.toolbar li {
+	display: inline;
+	margin: 0 15px 0 0;
+}
+
+ul.toolbar a {
+	text-decoration: none;
+	
+}
+
+h2 {
+	color: #999;
+	border-bottom: 1px solid #999;
+}
+
+.invisible {
+	display: none;
+}
+
+h1 {
+	margin: 15px 0 0 0;
+}

@@ -1,0 +1,20 @@
+<%- form_for(@person) do |f| -%>
+
+  <%= error_messages_for :person %>
+  
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br />
+  
+  <%= f.label :middle_initial %>
+  <%= f.text_field :middle_initial %>
+  <br />
+  
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<%- end -%>

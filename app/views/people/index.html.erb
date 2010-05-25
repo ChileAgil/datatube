@@ -1,0 +1,14 @@
+<h1>Listing people</h1>
+
+
+<ul>
+<% @people.each do |person| %>
+  <li>
+    <%= link_to person.full_name, person_path(person) %>
+  </li>
+<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Person', new_person_path %>

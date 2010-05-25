@@ -1,0 +1,8 @@
+<p class="notice"><%= notice %></p>
+
+<h1><%= @person.full_name %></h1>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Versions', versions_person_path(@person) %> |
+<%= link_to 'Delete', person_path(@person), :method => 'delete', :confirm => 'Are You sure?' %> |
+<%= link_to 'Back', people_path %>

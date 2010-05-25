@@ -1,0 +1,6 @@
+<% @person.versions.each do |version| %>
+  <%= version.version %> - <%= version.full_name %>
+  <br />
+<% end %>
+
+<%= link_to 'Back', person_path(@person) %>

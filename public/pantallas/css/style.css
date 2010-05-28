@@ -76,3 +76,33 @@ h4 {
 	margin: 15px 0 0 0;
 }
 
+table{
+	width: 600px;
+}
+table th{
+	font-size: 15px;
+	color: #FF0000;
+	text-align: left;
+}
+table td{
+	font-size: 15px;
+}
+
+table.searchResults{
+	width: 600px;
+}
+table.searchResults th{
+	font-size: 15px;
+	color: #FF0000;
+}
+div.footer{
+	float: left;
+	margin-top: 30px;
+}
+
+div.titulo{
+	margin-top: 10px;
+}
+div.icono1{
+	
+}

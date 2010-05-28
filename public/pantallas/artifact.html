@@ -1,0 +1,81 @@
+<html>
+<head>
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript">
+function changeType() {
+	select = document.getElementById("uri");
+	type = document.getElementById("type");
+	fileInput = document.getElementById("fileInput");
+	urlInput = document.getElementById("urlInput");
+	type.value = select.options[select.selectedIndex].value;
+	if(type.value == "url") {
+		$('#fileInput').addClass('invisible');
+		$('#urlInput').removeClass('invisible');
+	} 
+	else {
+		$('#urlInput').addClass('invisible');
+		$('#fileInput').removeClass('invisible');
+	}
+}
+	
+$(document).ready(function(){
+	changeType();
+});
+
+
+
+</script>
+
+</head>
+<body>
+
+<div id="wrap">
+
+	<div id="header"><h1>Data<img src="images/logo.png" align="middle"/></h1></div>
+	<div id="menu">
+		<ul class="toolbar">
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Publicar</a></li>
+		</ul>
+	</div>
+	
+	<div id="content">
+	
+		<h2>Descripcion de Artefacto</h2>
+		
+		<div class="titulo"> 
+			<div style="float: left; font-weight: bold"> Nombre: </div> 
+			<div> Listado de Comunas</div>
+		</div>
+		
+		<div class="titulo"> 
+			<div style="float: left; font-weight: bold"> Formato: </div>
+			<div> Xls</div>
+		</div>
+		
+		<div class="titulo"> 
+			<div style="float: left; font-weight: bold">Descripcion:</div>
+			<div>&nbsp;</div>
+		</div>
+		
+		<div class="titulo"> 
+			<div style="float: left; font-weight: bold">Fecha ultima actualizacion:</div>
+			<div> 28-05-2010</div>
+		</div>
+				
+		<label><input type="submit" value="Descargar" /></label>	
+	
+	</div>
+	<div id="footer"></div>
+
+
+</div>
+
+
+
+</body>
+</html>

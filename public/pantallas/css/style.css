@@ -8,11 +8,20 @@ label {
 	margin: 10px 0 0 0;
 	display: block;
 }
+
 input {
 }
 
-input.large {
-	width: 400px;
+input.searchbox {
+	width: 80%;
+	padding: 5px;
+	font-size: 14px;
+	color: #666;
+}
+
+input.searchbutton {
+	width: 35px;
+	height: 35px;
 }
 
 ul.toolbar {
@@ -26,9 +35,9 @@ ul.toolbar li {
 	margin: 0 15px 0 0;
 }
 
-ul.toolbar a {
+ul.toolbar a, ul.toolbar a:visited, ul.toolbar a:active {
 	text-decoration: none;
-	
+	color: #0000ff;
 }
 
 h2 {
@@ -41,7 +50,29 @@ h3 {
 	font-weight: bold;
 }
 
+h4 {
+	font-size: 11px;
+	padding: 0;margin: 0;
+	line-height: 14px;
+	color: #a62626;
+}
+
 .invisible {
 	display: none;
+}
+
+#lastrequests {
+	height: 200px;
+	overflow-y: auto;
+	width: 100%;
+}
+
+.request {
+	width: 95%;
+	color: #333;
+	border: 1px dotted #666;
+	background: #ededed;
+	padding: 10px;
+	margin: 15px 0 0 0;
 }
 

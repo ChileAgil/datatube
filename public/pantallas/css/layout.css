@@ -15,4 +15,6 @@ body {
 
 #menu {
 	margin: 5px 0 30px 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #ccc;
 }

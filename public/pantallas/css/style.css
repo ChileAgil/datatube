@@ -11,6 +11,10 @@ label {
 input {
 }
 
+input.large {
+	width: 400px;
+}
+
 ul.toolbar {
 	display: inline;
 	margin: 0 0 0 0;
@@ -31,11 +35,13 @@ h2 {
 	color: #999;
 	border-bottom: 1px solid #999;
 }
+h3 {
+	margin: 15px 0 0 0;
+	font-size: 13px;
+	font-weight: bold;
+}
 
 .invisible {
 	display: none;
 }
 
-h1 {
-	margin: 15px 0 0 0;
-}

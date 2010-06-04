@@ -13,7 +13,7 @@ input {
 }
 
 input.searchbox {
-	width: 80%;
+	width: 610px;
 	padding: 5px;
 	font-size: 14px;
 	color: #666;
@@ -35,14 +35,13 @@ ul.toolbar li {
 	margin: 0 15px 0 0;
 }
 
-ul.toolbar a, ul.toolbar a:visited, ul.toolbar a:active {
+a, a:visited, a:active {
 	text-decoration: none;
 	color: #0000ff;
 }
 
 h2 {
 	color: #999;
-	border-bottom: 1px solid #999;
 }
 h3 {
 	margin: 15px 0 0 0;
@@ -106,3 +105,28 @@ div.titulo{
 div.icono1{
 	
 }
+
+table.grid {
+	width: 100%;
+	border-collapse: collapse;	
+}
+
+table.grid th {
+	padding: 5px;
+	font-size: 12px;
+	background-color: #ddd;
+	color: #666;
+}
+
+table.grid tr {
+	margin: 0 0 0 0;
+	border-bottom: 1px solid #ccc;
+}
+
+table.grid td {
+	margin: 0 0 0 0;
+	padding: 5px;
+	font-size: 12px;
+	color: #666;
+}
+

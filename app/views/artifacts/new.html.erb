@@ -1,0 +1,27 @@
+<h2>Publicar Artefacto</h2>
+		
+<form method="post" action="/">
+	
+
+	<label for="">Direcci&oacute;n de acceso<br />
+		<input type="radio"option onchange="changeType(this)" name="url" value="file" selected="selected">Archivo</option>
+		<input type="radio"option onchange="changeType(this)" name="url" value="url" >URL</option>
+		<br />
+		<input type="file" name="fileInput" id="fileInput" value="Browse" />
+		<input type="text" name="urlInput" id="urlInput" />
+	</label>
+	
+	<label for="name">Nombre: <br /><input type="text" name="name" id="name" value=""/></label>
+	
+	<label for="format">Formato<br />
+		<select id="format">
+			<option >PDF</option>
+			<option >txt</option>
+			<option >xls</option>
+		</select>
+	</label>
+	
+	<label for="description">Descripci&oacute;n<br /><textarea id="description"></textarea></label>
+	
+	<label><input type="submit" value="Publicar" /></label>	
+</form>

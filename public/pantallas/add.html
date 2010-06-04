@@ -11,8 +11,11 @@ function changeType() {
 	type = document.getElementById("type");
 	fileInput = document.getElementById("fileInput");
 	urlInput = document.getElementById("urlInput");
-	type.value = select.options[select.selectedIndex].value;
-	if(type.value == "url") {
+	
+	s = type[type.selected];
+	alert(s.value);
+	
+	if(type.select == "url") {
 		$('#fileInput').addClass('invisible');
 		$('#urlInput').removeClass('invisible');
 	} 
@@ -35,12 +38,12 @@ $(document).ready(function(){
 
 <div id="wrap">
 
-	<div id="header"><h1>Data<img src="images/logo.png" align="middle"/></h1></div>
+	<div id="header"><img src="images/logo.png" /></div>
 	<div id="menu">
 		<ul class="toolbar">
 			<li><a href="index.html">Inicio</a></li>
 			<li><a href="add.html">Publicar</a></li>
-			<li><a href="request.html">Solicitar</a></li>
+			<li><a href="results.html">Resultados</a></li>
 		</ul>
 	</div>
 	
@@ -49,17 +52,17 @@ $(document).ready(function(){
 		<h2>Publicar Artefacto</h2>
 		
 		<form method="post" action="/">
-			<input type="hidden" id="type" name="type" />
-			<label for="name">Nombre: <br /><input type="text" name="name" id="name" value=""/></label>
 			
+		
 			<label for="">Direcci&oacute;n de acceso<br />
-				<select id="uri" onchange="changeType()">
-					<option value="file" selected="selected">Archivo</option>
-					<option value="url">URL</option>
-				</select>
+				<input type="radio"option onchange="changeType(this)" name="url" value="file" selected="selected">Archivo</option>
+				<input type="radio"option onchange="changeType(this)" name="url" value="url" >URL</option>
+				<br />
 				<input type="file" name="fileInput" id="fileInput" value="Browse" />
 				<input type="text" name="urlInput" id="urlInput" />
 			</label>
+			
+			<label for="name">Nombre: <br /><input type="text" name="name" id="name" value=""/></label>
 			
 			<label for="format">Formato<br />
 				<select id="format">

@@ -130,3 +130,6 @@ table.grid td {
 	color: #666;
 }
 
+.tag { margin: 10px }
+.star { display: inline-block; width: 18px; height: 18px; background-image: url(/images/stars.png); }
+

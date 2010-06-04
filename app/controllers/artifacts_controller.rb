@@ -10,4 +10,7 @@ class ArtifactsController < ApplicationController
   
   def search
   end
+  
+  def petition
+  end
 end

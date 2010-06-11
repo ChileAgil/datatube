@@ -1,29 +1,21 @@
 
-<h2>Resultado de la Busqueda</h2>
+<h2><%= title "Resultados de la búsqueda \"#{params[:q]}\"" %></h2>
 
 <table class="grid">
-
 	<tr>
 		<th>Nombre</th>
 		<th>Formato</th>
-		<th>Ultima Fecha Edicion</th>
+		<th>Editado hace</th>
+		<th width="35%">Descripci&oacute;n</th>
 	</tr>
-	
 	<%- @artifacts.each do |artifact| -%>
 		<tr>
 			<td><%= link_to artifact.name, artifact %></td>
 			<td><%= artifact.format %></td>
 			<td><%= time_ago_in_words(artifact.updated_at) %></td>
+			<td><%= artifact.description %></td>
 		</tr>
 	<%- end -%>
-	</table>
+</table>
 <br />
-<a href=#>Anterior</a>
-&nbsp;
-<a href=#>1</a>
-&nbsp;
-<a href=#>2</a>
-&nbsp;
-<a href=#>3</a>
-&nbsp;
-<a href=#>Siguiente</a>
+<%= will_paginate(@artifacts) %>

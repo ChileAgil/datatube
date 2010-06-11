@@ -1,10 +1,10 @@
-<img src="/images/download-button.jpg" border="0" class="download-button"/>
-<h2>Listado de comunas</h2>
+<a href="<%=@artifact.url%>"><img src="/images/download-button.jpg" border="0" class="download-button"/></a>
+<h2><%=@artifact.name%></h2>
 
 <table class="artifact">
 	<tr>
 		<td class="label">Formato</td>
-		<td><img alt="xls" src="/images/xls.png" width="25px" align="middle" /> Documento excel</td>
+		<td><img alt="xls" src="/images/xls.png" width="25px" align="middle" /> <%=@artifact.format%></td>
 	</tr>
 	<tr>
 		<td class="label">Ranking</td>
@@ -12,11 +12,15 @@
 	</tr>
 	<tr>
 		<td class="label">Fecha publicaci&oacute;n</td>
-		<td>11 de junio de 2010</td>
+		<td><%=@artifact.created_at.strftime("%B %d, %Y ")%></td>
+	</tr>
+	<tr>
+		<td class="label">&Uacute;ltima modificaci&oacute;n</td>
+		<td><%=time_ago_in_words(@artifact.updated_at)%></td>
 	</tr>
 	<tr>
 		<td class="label">Descripci&oacute;n</td>
-		<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam placerat nulla vitae venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque eget massa sapien. Quisque a erat lacus, a faucibus nunc. Quisque sit amet velit a magna volutpat accumsan. Pellentesque a metus nec justo commodo iaculis. Suspendisse erat nulla, sagittis imperdiet fermentum ut, vulputate vel dui.</td>
+		<td><%=@artifact.description%></td>
 	</tr>
 	<tr>
 		<td class="label">Artefactos relacionados</td>

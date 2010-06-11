@@ -6,6 +6,7 @@ class ArtifactsController < ApplicationController
   end
   
   def show
+  	@artifact = Artifact.find(params[:id])
   end
   
   def search

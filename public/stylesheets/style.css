@@ -138,6 +138,7 @@ table.artifact {
 }
 table.artifact td {
 	font-size: 11px;
+	padding: 4px;
 }
 
 table.artifact td.label {

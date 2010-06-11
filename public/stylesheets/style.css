@@ -42,6 +42,8 @@ a, a:visited, a:active {
 
 h2 {
 	color: #999;
+	margin: 15px 0 0 0;
+	padding: 0;
 }
 h3 {
 	margin: 15px 0 0 0;
@@ -130,6 +132,49 @@ table.grid td {
 	color: #666;
 }
 
-.tag { margin: 10px }
+table.artifact {
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+table.artifact td {
+	font-size: 11px;
+}
+
+table.artifact td.label {
+	width: 100px;
+	color: #666;
+	text-align: right;
+	background-color: #ededed;
+	padding: 4px;
+	font-weight: bold;
+}
+
+.download-button {
+	left: 800px; 
+	position: absolute;
+}
+
+table.viene-va {
+	margin-top: 20px;
+	width: 100%;
+}
+
+table.viene-va td{
+	font-size: 11px;
+}
+table.viene-va td.label {
+	width: 33%;
+	color: #333;
+	text-align: center;
+	background-color: #ddd;
+	padding: 4px;
+	font-weight: bold;
+}
+table.viene-va td {
+	background-color: #efefef;
+	padding: 5px;
+}
+
+.tag { padding: 4px; margin: 1px; background-color:#79a3ff; color: #fff; }
 .star { display: inline-block; width: 18px; height: 18px; background-image: url(/images/stars.png); }
 

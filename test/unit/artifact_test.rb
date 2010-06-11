@@ -14,6 +14,12 @@ class ArtifactTest < ActiveSupport::TestCase
     assert_not_nil artifact.errors[:name]
   end
   
+  test "should save" do
+    artifact = Artifact.new :name => 'Some new Artifact'
+    
+    assert artifact.save
+    assert_equal Artifact.last, artifact
+  end
   
   test "Should find by name" do
     artifact =  Artifact.new :name => 'Foo Data'

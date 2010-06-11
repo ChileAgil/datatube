@@ -6,6 +6,16 @@ class ArtifactsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  
+  test "should render new form" do
+    get :new
+    assert_response :success
+  end
+  
+  test "should create new artifact" do
+    # TODO
+  end
+  
   test "should get search" do
     get :search, :q => 'Some search'
     assert_response :success

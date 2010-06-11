@@ -5,6 +5,7 @@ class Artifact
   field :name
   field :format
   field :description
+  field :url
   
   validates_presence_of :name
   

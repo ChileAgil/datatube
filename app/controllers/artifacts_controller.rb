@@ -9,5 +9,6 @@ class ArtifactsController < ApplicationController
   end
   
   def search
+    @artifacts = Artifact.where(:name => /.*#{params[:q]}.*/i).all
   end
 end

@@ -1,8 +1,9 @@
 <h3>&iquest;Qu&eacute; est&aacute;s buscando?</h3>
-<form method="get" action="/artifacts/search">
-	<input type="text" class="searchbox" name="search_text" id="search_text" value=""/>
-	<input type="image" align="top"src="/images/searchbutton.png" class="searchbutton" name="buscar" value="Buscar" id="buscar" />
-</form>
+<%- form_tag search_artifacts_path, :method => :get do -%>
+	<%= text_field_tag :q, '', :id => 'search_text', :class => 'searchbox' %>
+	<%= image_submit_tag "searchbutton.png", :id => 'buscar', :class => 'searchbutton', :align => 'top' %>
+<%- end -%>
+
 <br /><br /><br />
 
 <h2>&Uacute;ltimas solicitudes</h2>

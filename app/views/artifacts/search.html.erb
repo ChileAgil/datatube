@@ -2,57 +2,21 @@
 <h2>Resultado de la Busqueda</h2>
 
 <table class="grid">
+
 	<tr>
 		<th>Nombre</th>
 		<th>Formato</th>
 		<th>Ultima Fecha Edicion</th>
 	</tr>
-	<tr>
-		<td><a href="artifact.html">Listado de Comunas</a></td>
-		<td>xls</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Hospitales por Comuna</a></td>
-		<td>pdf</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Restaurantes de Comunas</a></td>
-		<td>xls</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Videoclubs por Comuna</a></td>
-		<td>pdf</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Cines de Comunas</a></td>
-		<td>xls</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Veterinarias por Comuna</a></td>
-		<td>pdf</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Videoclubs por Comuna</a></td>
-		<td>pdf</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Cines de Comunas</a></td>
-		<td>xls</td>
-		<td>28-05-2010</td>
-	</tr>
-	<tr>
-		<td><a href="artifact.html">Veterinarias por Comuna</a></td>
-		<td>pdf</td>
-		<td>28-05-2010</td>
-	</tr>
-</table>
+	
+	<%- @artifacts.each do |artifact| -%>
+		<tr>
+			<td><%= link_to artifact.name, artifact %></td>
+			<td><%= artifact.format %></td>
+			<td><%= time_ago_in_words(artifact.updated_at) %></td>
+		</tr>
+	<%- end -%>
+	</table>
 <br />
 <a href=#>Anterior</a>
 &nbsp;

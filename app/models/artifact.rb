@@ -1,6 +1,7 @@
 class Artifact
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Tags
   
   field :name
   field :format

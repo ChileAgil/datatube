@@ -30,4 +30,22 @@ class ArtifactTest < ActiveSupport::TestCase
     assert_equal Artifact.search(artifact.name).last, artifact
     assert_not_equal Artifact.search('Garbage').last, artifact
   end
+  
+  test "should have tags" do
+    artifact =  Artifact.new :name => 'Some new Artifact'
+    
+    assert_nil artifact.tags
+    assert_nil artifact.tag_list
+    
+    artifact.tag_list = "foo, bar"
+    
+    assert_equal artifact.tags, ['foo', 'bar']
+  end
+  
+  test "shouldn't store empty tags" do
+    artifact =  Artifact.new :name => 'Some new Artifact'
+    artifact.tag_list = " foo, , bar "
+    
+    assert_equal artifact.tags, ['foo', 'bar']
+  end
 end

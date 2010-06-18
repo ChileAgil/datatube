@@ -9,7 +9,11 @@ class Artifact
   
   validates_presence_of :name
   
-  def self.search(query)
-    where( :name => /.*#{query}.*/i )
+  # Metodos de la clase
+  class << self
+    # Buscar artefacto
+    def search(query)
+      where( :name => /.*#{query}.*/i )
+    end
   end
 end

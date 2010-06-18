@@ -13,7 +13,8 @@ class ArtifactsControllerTest < ActionController::TestCase
   end
   
   test "should create new artifact" do
-    # TODO
+    post :create, :artifact => { :name => "test" }
+    assert_response :redirect
   end
   
   test "should get search" do

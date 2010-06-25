@@ -13,8 +13,11 @@ class ArtifactsControllerTest < ActionController::TestCase
   end
   
   test "should create new artifact" do
-    post :create, :artifact => { :name => "test" }
-    assert_response :redirect
+    assert_difference('Artifact.count', 1) do
+      post :create, :artifact => { :name => "test" }
+    end
+    
+    assert_redirected_to artifact_path(assigns(:artifact))
   end
   
   test "should get search" do

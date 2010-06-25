@@ -179,3 +179,17 @@ table.viene-va td {
 .tag { padding: 4px; margin: 1px; background-color:#79a3ff; color: #fff; }
 .star { display: inline-block; width: 18px; height: 18px; background-image: url(/images/stars.png); }
 
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}

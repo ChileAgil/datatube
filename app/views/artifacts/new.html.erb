@@ -1,8 +1,13 @@
 <h2><%= title "Publicar Artefacto" %></h2>
 
-<% form_for @artifact do |f| -%>
+<% form_for @artifact, :html => {:multipart => true} do |f| -%>
+	<%= f.error_messages %>
+
 	<%= f.label :url, 'Direcci&oacute;n de acceso' %>
 	<%= f.text_field :url %>
+	
+	<%= f.label :file, 'Archivo'  %>
+	<%= f.file_field :file  %>
 	
 	<%= f.label :name, 'Nombre' %>
 	<%= f.text_field :name %>

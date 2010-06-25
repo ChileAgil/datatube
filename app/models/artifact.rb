@@ -1,3 +1,5 @@
+require 'carrierwave/orm/mongoid'
+
 class Artifact
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -7,7 +9,13 @@ class Artifact
   field :description
   field :url
   
+  mount_uploader :file, ArtifactUploader
+  
   validates_presence_of :name
+  
+  def url
+    file.url || attributes['url']
+  end
   
   # Metodos de la clase
   class << self

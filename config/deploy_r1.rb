@@ -3,17 +3,19 @@
 
 
 set :application, "datatube"
+set :deploy_to, '/var/www/datatube_r1'
 
 set :scm, :git
 set :repository,  "git@github.com:firenxis/datatube.git"
+set :branch, "release_1"
 default_run_options[:pty] = true
 set :deploy_via, :remote_cache
 
 set :sudo, false
 
-role :web, "osiris.firenxis.com"                          # Your HTTP server, Apache/etc
-role :app, "osiris.firenxis.com"                          # This may be the same as your `Web` server
-role :db,  "osiris.firenxis.com", :primary => true # This is where Rails migrations will run
+role :web, "datatube.firenxis.com"                          # Your HTTP server, Apache/etc
+role :app, "datatube.firenxis.com"                          # This may be the same as your `Web` server
+role :db,  "datatube.firenxis.com", :primary => true # This is where Rails migrations will run
 set :user, 'datatube'
 set :port, 3666
 ssh_options[:forward_agent] = true

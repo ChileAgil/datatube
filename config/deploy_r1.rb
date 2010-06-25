@@ -7,7 +7,7 @@ set :deploy_to, '/var/www/datatube_r1'
 
 set :scm, :git
 set :repository,  "git@github.com:firenxis/datatube.git"
-set :branch, "master"
+set :branch, "release_1"
 default_run_options[:pty] = true
 set :deploy_via, :remote_cache
 

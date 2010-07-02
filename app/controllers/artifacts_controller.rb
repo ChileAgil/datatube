@@ -11,7 +11,7 @@ class ArtifactsController < ApplicationController
     
     if @artifact.save
       flash[:notice] = "El artefacto se guardo correctamente"
-      redirect_to @artifact
+      render :action => "edit"
     else
       flash[:error] = "No se pudo guardar el artefacto"
       render :action => "new"

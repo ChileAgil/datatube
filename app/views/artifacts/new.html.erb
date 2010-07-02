@@ -9,15 +9,6 @@
 	<%= f.label :file, 'Archivo'  %>
 	<%= f.file_field :file  %>
 	
-	<%= f.label :name, 'Nombre' %>
-	<%= f.text_field :name %>
-	
-	<%= f.label :format, 'Formato' %>
-	<%= f.select :format, %w(pdf txt xls html) %>
-	
-	<%= f.label :description, 'Descripción' %>
-	<%= f.text_area :description %>
-	
 	<br />
-	<%= f.submit 'Publicar' %>
+	<%= f.submit 'Subir' %>
 <% end -%>

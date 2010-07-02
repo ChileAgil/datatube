@@ -1,0 +1,17 @@
+<h2><%= title "Publicar Artefacto" %></h2>
+
+<% form_for @artifact, :html => {:multipart => true} do |f| -%>
+	<%= f.error_messages %>
+	
+	<%= f.label :name, 'Nombre' %>
+	<%= f.text_field :name %>
+	
+	<%= f.label :format, 'Formato' %>
+	<%= f.select :format, %w(pdf txt xls html) %>
+	
+	<%= f.label :description, 'Descripción' %>
+	<%= f.text_area :description %>
+	
+	<br />
+	<%= f.submit 'Publicar' %>
+<% end -%>

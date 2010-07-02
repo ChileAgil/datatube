@@ -19,7 +19,7 @@
 	
 	<div id="content">
 		<% flash.each do |type, message| %>
-			<div id="flash-<%= type %>"><%= message %></div>
+			<div id="flash_<%= type %>"><%= message %></div>
 		<% end %>
 		<%= yield %>
 	</div>

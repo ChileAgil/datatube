@@ -30,4 +30,30 @@ class ArtifactTest < ActiveSupport::TestCase
     assert_equal Artifact.search(artifact.name).last, artifact
     assert_not_equal Artifact.search('Garbage').last, artifact
   end
+  
+  test "should have tags" do
+    artifact =  Artifact.new :name => 'Some new Artifact'
+    
+    assert_equal artifact.tags, []
+    assert_equal artifact.tag_list, ''
+    
+    artifact.tag_list = "foo, bar"
+    
+    assert_equal artifact.tags, ['foo', 'bar']
+  end
+  
+  test "shouldn't store empty tags" do
+    artifact =  Artifact.new :name => 'Some new Artifact'
+    artifact.tag_list = " foo, , bar "
+    
+    assert_equal artifact.tags, ['foo', 'bar']
+  end
+  
+  test "Should count downloads" do
+    artifact =  Artifact.new :name => 'Foo Data', :url => 'some/url'
+    
+    assert_difference('artifact.download_count', 1) do
+      assert_equal artifact.download!, 'some/url'
+    end
+  end
 end

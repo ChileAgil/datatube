@@ -1,4 +1,7 @@
 class ArtifactsController < ApplicationController
+
+  #before_filter :authenticate_user!
+
   def index
   end
   
@@ -45,5 +48,11 @@ class ArtifactsController < ApplicationController
   end
   
   def petition
+  end
+  
+  def download
+    @artifact = Artifact.find(params[:id])
+    
+    redirect_to @artifact.download!
   end
 end

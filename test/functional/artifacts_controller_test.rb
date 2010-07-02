@@ -30,4 +30,11 @@ class ArtifactsControllerTest < ActionController::TestCase
     assert_not_nil flash[:error]
     assert_redirected_to root_path
   end
+  
+  test "should redirect to download url" do
+    artifact =  Artifact.create :name => 'Foo Data', :url => 'some/url'
+    get :download, :id => artifact.id
+    
+    assert_redirected_to artifact.url
+  end
 end

@@ -1,0 +1,23 @@
+
+<h2><%= title "Artefactos taggeados con \"#{params[:id]}\"" %></h2>
+
+<table class="grid">
+	<tr>
+		<th>Nombre</th>
+		<th>Formato</th>
+		<th>Editado hace</th>
+		<th width="35%">Descripci&oacute;n</th>
+		<th>Descargas</th>
+	</tr>
+	<%- @artifacts.each do |artifact| -%>
+		<tr>
+			<td><%= link_to artifact.name, artifact %></td>
+			<td><%= artifact.format %></td>
+			<td><%= time_ago_in_words(artifact.updated_at) %></td>
+			<td><%= artifact.description %></td>
+			<td><%= artifact.download_count %></td>
+		</tr>
+	<%- end -%>
+</table>
+<br />
+<%= will_paginate(@artifacts) %>

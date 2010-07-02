@@ -4,8 +4,6 @@ class Artifact
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  before_validate :set_status
-  
   field :name
   field :format
   field :description
@@ -15,10 +13,21 @@ class Artifact
   mount_uploader :file, ArtifactUploader
   
   validates_presence_of :url
-  validates_presence_of :name, :on => :update
+  validates_presence_of :validate_name
+  validates_presence_of :validate_description
   
-  scope :complete, where(:status => 'complete')
-  scope :incomplete, where(:status => 'incomplete')
+  def mime 
+  	
+  	`file --mime -br "#{file.file.file}"`.strip if file.url
+  end
+  
+  def validate_name
+  	new_record? || name
+  end
+  
+  def validate_description
+  	new_record? || description
+  end
   
   def url
     file.url || remote_url
@@ -27,33 +36,7 @@ class Artifact
   def url=(u)
     self.remote_url = u
   end
-  
-  private
-    def set_status
-      case status
-      when nil
-        self.status = 'incomplete'
-      when 'incomplete'
-        self.status = 'complete'
-      end
-    end
-  
-    def set_incomplete_status
-      self.status = 'incomplete'
-    end
     
-    def set_complete_status
-      self.status = 'complete'
-    end
-    
-    def complete?
-      self.status == 'complete'
-    end
-    
-    def incomplete?
-      self.status == 'incomplete'
-    end
-  
   # Metodos de la clase
   class << self
     # Buscar artefacto

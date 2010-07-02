@@ -22,6 +22,19 @@ class ArtifactsController < ApplicationController
   	@artifact = Artifact.find(params[:id])
   end
   
+  def update
+  	@artifact = Artifact.find(params[:id])
+	@artifact.update_attributes(params[:artifact])
+
+  	if @artifact.save
+  		flash[:notice] = "El artefacto se guardo correctamente"
+  		render :action => "show"
+  	else
+  		flash[:error] = "No se pudo guardar el artefacto"
+      	render :action => "new"
+    end
+  end
+  
   def search
     if params[:q].blank?
       flash[:error] = "No se proporcionó ningún parámetro de búsqueda"

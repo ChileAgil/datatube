@@ -1,4 +1,4 @@
-<a href="<%=@artifact.url%>"><img src="/images/download-button.jpg" border="0" class="download-button"/></a>
+<a href="<%= download_artifact_path(@artifact) %>"><img src="/images/download-button.jpg" border="0" class="download-button"/></a>
 <h2><%=@artifact.name%></h2>
 
 <table class="artifact">

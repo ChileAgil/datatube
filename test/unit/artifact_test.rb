@@ -30,4 +30,12 @@ class ArtifactTest < ActiveSupport::TestCase
     assert_equal Artifact.search(artifact.name).last, artifact
     assert_not_equal Artifact.search('Garbage').last, artifact
   end
+  
+  test "Should count downloads" do
+    artifact =  Artifact.new :name => 'Foo Data', :url => 'some/url'
+    
+    assert_difference('artifact.download_count', 1) do
+      assert_equal artifact.download!, 'some/url'
+    end
+  end
 end

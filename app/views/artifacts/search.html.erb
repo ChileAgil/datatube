@@ -7,6 +7,7 @@
 		<th>Formato</th>
 		<th>Editado hace</th>
 		<th width="35%">Descripci&oacute;n</th>
+		<th>Descargas</th>
 	</tr>
 	<%- @artifacts.each do |artifact| -%>
 		<tr>
@@ -14,6 +15,7 @@
 			<td><%= artifact.format %></td>
 			<td><%= time_ago_in_words(artifact.updated_at) %></td>
 			<td><%= artifact.description %></td>
+			<td><%= artifact.download_count %></td>
 		</tr>
 	<%- end -%>
 </table>

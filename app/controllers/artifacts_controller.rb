@@ -33,4 +33,10 @@ class ArtifactsController < ApplicationController
   
   def petition
   end
+  
+  def download
+    @artifact = Artifact.find(params[:id])
+    
+    redirect_to @artifact.download!
+  end
 end

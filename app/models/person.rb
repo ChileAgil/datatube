@@ -13,4 +13,8 @@ class Person
   def full_name
     [first_name, middle_initial, last_name].join(' ')
   end
+
+  def login
+  end
+  
 end

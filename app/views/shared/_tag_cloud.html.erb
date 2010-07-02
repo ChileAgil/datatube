@@ -1,0 +1,18 @@
+<%- stylesheet 'tagcloud' -%>
+<div id="tag_cloud"></div>
+<script type="text/javascript">
+  google.load("visualization", "1");
+  google.setOnLoadCallback(draw);
+  function draw() {
+    data = new google.visualization.DataTable();
+    data.addColumn('string', 'Label');
+    data.addColumn('number', 'Value');
+    data.addColumn('string', 'Link');
+    <%- Artifact.tag_cloud.each do |tag| -%>
+      data.addRow(['<%= tag['_id'] %>', <%= tag['value'] %>, '<%= tag_path(tag['_id']) %>'])
+    <%- end -%>
+    var outputDiv = document.getElementById('tag_cloud');
+    var tc = new TermCloud(outputDiv);
+    tc.draw(data, null);
+  }
+</script>

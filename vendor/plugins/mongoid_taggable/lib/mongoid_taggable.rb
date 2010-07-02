@@ -57,6 +57,34 @@ module Mongoid
         _tags = [_tags] unless _tags.is_a? Array
         criteria.in(:tags => _tags)
       end
+      
+      def tag_cloud
+        map = <<-MAP
+          function() {
+              if (!this.tags) {
+                  return;
+              }
+
+              for (index in this.tags) {
+                  emit(this.tags[index], 1);
+              }
+          }
+        MAP
+        reduce = <<-REDUCE
+          function(previous, current) {
+              var count = 0;
+
+              for (index in current) {
+                  count += current[index];
+              }
+
+              return count;
+          }
+        REDUCE
+        
+        @results = self.collection.map_reduce(map, reduce)
+        @results.find().to_a
+      end
     end
     
   end

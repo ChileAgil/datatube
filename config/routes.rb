@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
     :member => {
       :download => :get 
     }
-  
+  map.resources :tags
   map.resources :people, :collection => {:login => :get }, :member => { :versions => :get }
 
 

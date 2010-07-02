@@ -24,7 +24,7 @@ module Mongoid
     module Tags
     def self.included(base)
       base.class_eval do |base1|
-        base1.field :tags, :type => Array    
+        base1.field :tags, :type => Array, :default => []
         base1.index :tags      
 
         include InstanceMethods

@@ -34,8 +34,8 @@ class ArtifactTest < ActiveSupport::TestCase
   test "should have tags" do
     artifact =  Artifact.new :name => 'Some new Artifact'
     
-    assert_nil artifact.tags
-    assert_nil artifact.tag_list
+    assert_equal artifact.tags, []
+    assert_equal artifact.tag_list, ''
     
     artifact.tag_list = "foo, bar"
     

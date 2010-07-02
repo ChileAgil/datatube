@@ -48,4 +48,12 @@ class ArtifactTest < ActiveSupport::TestCase
     
     assert_equal artifact.tags, ['foo', 'bar']
   end
+  
+  test "Should count downloads" do
+    artifact =  Artifact.new :name => 'Foo Data', :url => 'some/url'
+    
+    assert_difference('artifact.download_count', 1) do
+      assert_equal artifact.download!, 'some/url'
+    end
+  end
 end

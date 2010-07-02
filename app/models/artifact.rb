@@ -7,14 +7,17 @@ class Artifact
   field :format
   field :description
   field :url
+  field :download_count, :default => 0, :type => Integer
   
   validates_presence_of :name
   
-  # Metodos de la clase
-  class << self
-    # Buscar artefacto
-    def search(query)
-      where( :name => /.*#{query}.*/i )
-    end
+  #scope :by_downloads, order_by(:download_count)
+  scope :search, lambda { |query| where( :name => /.*#{query}.*/i ) }
+  
+  def download!
+    Artifact.collection.update({'_id' => self.id}, {'$inc' => {'download_count' => 1}})
+    self.download_count ||=0
+    self.download_count += 1
+    URI.encode(self.url)
   end
 end

@@ -13,15 +13,19 @@ class ArtifactsController < ApplicationController
     @artifact = Artifact.new params[:artifact]
     
     if @artifact.save
-      flash[:notice] = "El artefacto se guardo correctamente"
+      flash[:notice] = "El artefacto se ha subido correctamente, ahora debes completar la información para terminar el proceso"
       render :action => "edit"
     else
-      flash[:error] = "No se pudo guardar el artefacto"
+      flash.now[:error] = "No se pudo guardar el artefacto"
       render :action => "new"
     end
   end
   
   def show
+  	@artifact = Artifact.find(params[:id])
+  end
+  
+  def edit
   	@artifact = Artifact.find(params[:id])
   end
   
@@ -31,10 +35,10 @@ class ArtifactsController < ApplicationController
 
   	if @artifact.save
   		flash[:notice] = "El artefacto se guardo correctamente"
-  		render :action => "show"
+  		redirect_to @artifact
   	else
-  		flash[:error] = "No se pudo guardar el artefacto"
-      	render :action => "new"
+  		flash.now[:error] = "No se pudo guardar el artefacto"
+      render :action => "edit"
     end
   end
   

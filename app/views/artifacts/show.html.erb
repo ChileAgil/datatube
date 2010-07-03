@@ -35,7 +35,7 @@
 		<td class="label">Tags</td>
 		<td>
 		  <%- @artifact.tags.each do |tag| -%>
-		    <span class="tag"><%= tag %></span>
+		    <span class="tag"><%= link_to tag, tag_path(tag) %></span>
 		  <%- end -%>
 		</td>
 	</tr>

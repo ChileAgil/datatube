@@ -14,10 +14,10 @@ class ArtifactsControllerTest < ActionController::TestCase
   
   test "should create new artifact" do
     assert_difference('Artifact.count', 1) do
-      post :create, :artifact => { :name => "test" }
+      post :create, :artifact => { :remote_url => "test" }
     end
     
-    assert_redirected_to artifact_path(assigns(:artifact))
+    assert_response :success
   end
   
   test "should get search" do

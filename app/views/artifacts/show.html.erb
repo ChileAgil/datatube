@@ -1,4 +1,4 @@
-<a href="<%=@artifact.url%>"><img src="/images/download-button.jpg" border="0" class="download-button"/></a>
+<a href="<%= download_artifact_path(@artifact) %>"><img src="/images/download-button.jpg" border="0" class="download-button"/></a>
 <h2><%=@artifact.name%></h2>
 
 <table class="artifact">
@@ -34,12 +34,9 @@
 	<tr>
 		<td class="label">Tags</td>
 		<td>
-			<span class="tag">Santiago</span>
-			<span class="tag">Comunas</span>
-			<span class="tag">Township</span>
-			<span class="tag">La Florida</span>
-			<span class="tag">Chile</span>
-			<span class="tag">Datos administrativos</span>
+		  <%- @artifact.tags.each do |tag| -%>
+		    <span class="tag"><%= link_to tag, tag_path(tag) %></span>
+		  <%- end -%>
 		</td>
 	</tr>
 </table>

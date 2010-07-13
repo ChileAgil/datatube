@@ -4,7 +4,12 @@
 	<%= image_submit_tag "searchbutton.png", :id => 'buscar', :class => 'searchbutton', :align => 'top' %>
 <%- end -%>
 
-<br /><br /><br />
+<br />
+
+<h3>Tags</h3>
+<%= render :partial => 'shared/tag_cloud' %>
+
+<br /><br />
 
 <h2>&Uacute;ltimas solicitudes</h2>
 <div id="lastrequests">

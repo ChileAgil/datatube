@@ -4,6 +4,8 @@
   <title><%= @content_for_title || 'Untitled' %></title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag 'jquery-1.4.2.min' %>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/termcloud/tc.js"></script>
   <%= yield :head %>
 </head>
 <body>
@@ -28,7 +30,7 @@
 	
 	<div id="content">
 		<% flash.each do |type, message| %>
-			<div id="flash-<%= type %>"><%= message %></div>
+			<div id="flash_<%= type %>"><%= message %></div>
 		<% end %>
 		<%= yield %>
 	</div>

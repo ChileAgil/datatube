@@ -1,12 +1,13 @@
 Mongoid.configure do |config|
+  name = nil
   
   case Rails.env
   when 'test'
-    name = "datatube_test"
-  when 'development'
-    name = "datatube_development"
-  else
+    name = "datatube_test"  
+  when 'production'
     name = "datatube_production"
+  else
+    name = "datatube_development"
   end
   
   config.master = Mongo::Connection.new.db(name)

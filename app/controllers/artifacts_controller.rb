@@ -1,5 +1,8 @@
 class ArtifactsController < ApplicationController
 
+  
+  #before_filter :authenticate_user!
+
   def index
   end
   
@@ -11,16 +14,33 @@ class ArtifactsController < ApplicationController
     @artifact = Artifact.new params[:artifact]
     
     if @artifact.save
-      flash[:notice] = "El artefacto se guardo correctamente"
-      redirect_to @artifact
+      flash[:notice] = "El artefacto se ha subido correctamente, ahora debes completar la información para terminar el proceso"
+      render :action => "edit"
     else
-      flash[:error] = "No se pudo guardar el artefacto"
+      flash.now[:error] = "No se pudo guardar el artefacto"
       render :action => "new"
     end
   end
   
   def show
   	@artifact = Artifact.find(params[:id])
+  end
+  
+  def edit
+  	@artifact = Artifact.find(params[:id])
+  end
+  
+  def update
+  	@artifact = Artifact.find(params[:id])
+	@artifact.update_attributes(params[:artifact])
+
+  	if @artifact.save
+  		flash[:notice] = "El artefacto se guardo correctamente"
+  		redirect_to @artifact
+  	else
+  		flash.now[:error] = "No se pudo guardar el artefacto"
+      render :action => "edit"
+    end
   end
   
   def search
@@ -33,5 +53,11 @@ class ArtifactsController < ApplicationController
   end
   
   def petition
+  end
+  
+  def download
+    @artifact = Artifact.find(params[:id])
+    
+    redirect_to @artifact.download!
   end
 end

@@ -14,10 +14,10 @@ class ArtifactsControllerTest < ActionController::TestCase
   
   test "should create new artifact" do
     assert_difference('Artifact.count', 1) do
-      post :create, :artifact => { :name => "test" }
+      post :create, :artifact => { :remote_url => "test" }
     end
     
-    assert_redirected_to artifact_path(assigns(:artifact))
+    assert_response :success
   end
   
   test "should get search" do
@@ -29,5 +29,12 @@ class ArtifactsControllerTest < ActionController::TestCase
     get :search
     assert_not_nil flash[:error]
     assert_redirected_to root_path
+  end
+  
+  test "should redirect to download url" do
+    artifact =  Artifact.create :name => 'Foo Data', :url => 'some/url'
+    get :download, :id => artifact.id
+    
+    assert_redirected_to artifact.url
   end
 end

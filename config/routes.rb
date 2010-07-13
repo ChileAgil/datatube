@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :artifacts, :collection => { :search => :get, :request => :get }
   
-  map.resources :people, :collection => {:login => :get }, :member => { :versions => :get }
+  map.resources :people, :collection => {:login => :get, :debug => :get }, :member => { :versions => :get }
 
 
   # Sample of regular route:

@@ -1,4 +1,11 @@
 class PeopleController < ApplicationController
+
+  before_filter :set_facebook_session
+  helper_method :facebook_session
+
+
+  #ensure_application_is_installed_by_facebook_user
+
   # GET /people
   # GET /people.xml
   def index
@@ -87,6 +94,22 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html
       format.xml  { render :xml => @person.versions }
+    end
+  end
+
+  def login
+    if facebook_session
+        @facebook_id = facebook_session.user.id
+        @person = Person.find(:first, :conditions => {:facebook_id => @facebook_id.to_s})
+        if !@person
+          @person = Person.new()
+          @person.first_name = facebook_session.user.first_name
+          @person.last_name = facebook_session.user.last_name
+          @person.facebook_id = facebook_session.user.id
+          @person.save
+        end
+        session[:user_id] = @person.id
+        redirect_back_or_default('/')
     end
   end
 end

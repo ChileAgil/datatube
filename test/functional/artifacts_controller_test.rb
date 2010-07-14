@@ -37,4 +37,16 @@ class ArtifactsControllerTest < ActionController::TestCase
     
     assert_redirected_to artifact.url
   end
+  
+  
+  test "should load facebook comments for artifact" do
+    artifact =  Factory.create(:artifact)
+    
+    get :show, :id => artifact.id
+    
+    assert response_from_page_or_rjs.to_s.match /fb:comments.*xid="#{artifact.id}"/
+    #assert response_from_page_or_rjs.to_s.match /fb:comments/
+    
+    #assert_select "fbcomments"
+  end
 end

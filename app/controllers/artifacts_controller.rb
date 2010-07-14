@@ -20,27 +20,30 @@ class ArtifactsController < ApplicationController
     
     if @artifact.save	
     	flash[:notice] = "El artefacto se ha subido correctamente, ahora debes completar la información para terminar el proceso"
-		content = open('http://'+@artifact.url).read
+		
+		if !@artifact.remote_url.blank? and @artifact.remote_url != 'http://' 
+			content = open(@artifact.remote_url).read
 	
-		doc = Hpricot(content)
-		
-		meta_title = doc.search("//meta[@name=title]")
-		if meta_title.length > 0
-			@artifact.name = meta_title[0].attributes['content']
-		else
-			meta_title = doc.search("//title")
+			doc = Hpricot(content)
+			
+			meta_title = doc.search("//meta[@name=title]")
 			if meta_title.length > 0
-				@artifact.name = meta_title[0].inner_html
+				@artifact.name = meta_title[0].attributes['content']
 			else
-				@artifact.name = ""
-			end	
-		end
-		
-		meta_description = doc.search("//meta[@name=description]")
-		if meta_description.length > 0
-			@artifact.description = meta_description[0].attributes['content']
-		else
-			@artifact.description = ""
+				meta_title = doc.search("//title")
+				if meta_title.length > 0
+					@artifact.name = meta_title[0].inner_html
+				else
+					@artifact.name = ""
+				end	
+			end
+			
+			meta_description = doc.search("//meta[@name=description]")
+			if meta_description.length > 0
+				@artifact.description = meta_description[0].attributes['content']
+			else
+				@artifact.description = ""
+			end
 		end
       
 		render :action => "edit"
@@ -48,6 +51,7 @@ class ArtifactsController < ApplicationController
       flash.now[:error] = "No se pudo guardar el artefacto"
       render :action => "new"
     end
+    
   end
   
   def show

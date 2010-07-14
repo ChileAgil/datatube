@@ -201,10 +201,26 @@ table.viene-va td {
   margin: 0 auto;
   width: 600px;
 }
-#artifact_meta {
-	width: 80%;
-	margin: 5px 0px 5px 0px;
-	padding: 10px;
-	background-color: #efefef;
-	border: 1px solid #ccc; 
+label {
+	margin: 0 0 0 0;
+	padding:  0 0 0 0;
+	font-weight: bold;
+	color: #555;
 }
+
+#formfield {
+	width: 690px;
+	margin: 10px 0 10px 0px;
+	padding: 5px;
+	background-color: #efefef;
+	border: 1px dashed #666; 
+}
+
+textarea.field {
+	height: 70px;
+}
+
+input.field, textarea.field {
+	width: 680px;
+}
+

@@ -9,15 +9,15 @@ $(document).ready(function(){
 <% form_for @artifact, :html => {:multipart => true} do |f| -%>
 	<%= f.error_messages %>
 
-	<h3><%= f.label :url, 'Direcci&oacute;n de acceso' %></h3>
-<div id="artifact_meta">
-	http://<%= f.text_field :url, :size => 90 %>
-</div>
+	<div id="formfield">
+		<%= f.label :url, 'Direcci&oacute;n de acceso' %>
+		<%= f.text_field :url, :value => 'http://', :class => "field" %>
+	</div>
 
-	<h3><%= f.label :file, 'Archivo'  %></h3>
-<div id="artifact_meta">
-	<%= f.file_field :file  %>
-</div>
+	<div id="formfield">
+		<%= f.label :file, 'Archivo'  %>
+		<%= f.file_field :file , :class => "field"  %>
+	</div>
 	
 	<br /><br />
 	<%= f.submit 'Siguiente' %>

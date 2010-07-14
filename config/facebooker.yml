@@ -9,10 +9,10 @@
 # This should only be necessary until the final version of the new profile is released.
 
 development:
-  api_key: af8f4c07674a99570fe0421902169fbb
-  secret_key: 2d6262f3db820507b8bbbb6bb84d2a06
+  api_key: 83c569a220f4d59233da7ffb65fa64c4
+  secret_key: b5fc1850379b4bc914a0f532a07b06b8
   canvas_page_name: Datatube
-  callback_url: http://osiris.firenxis.com/
+  callback_url: http://localhost:3000
   pretty_errors: true
   set_asset_host_to_callback_url: true
   tunnel:

@@ -1,14 +1,26 @@
 <h2><%= title "Publicar Artefacto" %></h2>
 
+<script>
+$(document).ready(function(){
+	
+});
+</script>
+
 <% form_for @artifact, :html => {:multipart => true} do |f| -%>
 	<%= f.error_messages %>
 
-	<%= f.label :url, 'Direcci&oacute;n de acceso' %>
-	<%= f.text_field :url %>
-	
-	<%= f.label :file, 'Archivo'  %>
+	<h3><%= f.label :url, 'Direcci&oacute;n de acceso' %></h3>
+<div id="artifact_meta">
+	http://<%= f.text_field :url, :size => 90 %>
+</div>
+
+	<h3><%= f.label :file, 'Archivo'  %></h3>
+<div id="artifact_meta">
 	<%= f.file_field :file  %>
+</div>
 	
-	<br />
-	<%= f.submit 'Subir' %>
+	<br /><br />
+	<%= f.submit 'Siguiente' %>
 <% end -%>
+
+<%= @test %>

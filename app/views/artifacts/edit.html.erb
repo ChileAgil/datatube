@@ -1,5 +1,6 @@
 <h2><%= title "Publicar Artefacto" %></h2>
-
+<%= @name %>
+<%= @description %>
 <% form_for @artifact, :html => {:multipart => true} do |f| -%>
 	<%= f.error_messages %>
 	

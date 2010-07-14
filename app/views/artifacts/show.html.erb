@@ -65,7 +65,12 @@
 	</tr>
 </table>
 
-<h2>Comentarios</h2>
+<div id="comments">
+  <h2>Comentarios</h2>
+  <%= fb_comments( @artifact.id ) %>
+</div>
+
+<% if false %>
 <div id="lastrequests">
 	<div class="request">
 		<h4>busco base de datos de comunas</h4>
@@ -83,4 +88,6 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in odio odio. Sed eu lorem massa. Proin malesuada justo eget mauris tempus egestas.Integer risus velit, iaculis sit amet volutpat ut, malesuada vel sapien.</p>
 	</div>
 </div>
+<% end %>
+
 

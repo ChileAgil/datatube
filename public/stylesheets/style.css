@@ -193,3 +193,8 @@ table.viene-va td {
   background-color: #FCC;
   border: solid 1px #C66;
 }
+
+#comments {
+  margin: 0 auto;
+  width: 600px;
+}

@@ -37,10 +37,11 @@ stagging:
     server_alive_interval: 0
 
 test:
-  api_key: 
-  secret_key: 
-  canvas_page_name: 
-  callback_url:
+  api_key: 83c569a220f4d59233da7ffb65fa64c4
+  secret_key: b5fc1850379b4bc914a0f532a07b06b8
+  canvas_page_name: Datatube
+  callback_url: http://localhost:3000
+  pretty_errors: true
   set_asset_host_to_callback_url: true
   tunnel:
     public_host_username: 
